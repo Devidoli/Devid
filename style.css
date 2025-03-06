@@ -6,48 +6,30 @@
 }
 
 :root {
-    --primary-color: #0ff; /* Cyan */
-    --secondary-color: #0078ff; /* Blue */
-    --dark-color: #050a18; /* Deep blue-black */
-    --light-color: #a0f0ff; /* Light cyan */
+    --primary-color: #0ff;
+    --secondary-color: #0078ff;
+    --dark-color: #050a18;
+    --light-color: #a0f0ff;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 body {
-    background-color: var(--dark-color);
+    background: linear-gradient(135deg, #0a192f 0%, #0d0b30 50%, #121063 100%);
     color: var(--light-color);
     overflow-x: hidden;
     line-height: 1.6;
+    font-size: 0.875rem;
 }
 
-/* Background Video Section */
-.background-container {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    z-index: -1;
-}
-
-.background-video {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    opacity: 0.8;
-}
-
+.background-container,
+.background-video,
 .background-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(5, 10, 24, 0.7);
-    z-index: 1;
+    display: none;
 }
 
-/* Navigation */
 nav {
     position: fixed;
     top: 0;
@@ -65,7 +47,7 @@ nav {
 .nav-links a {
     text-decoration: none;
     color: var(--light-color);
-    font-size: 0.875rem; /* ~14px */
+    font-size: 0.75rem;
     font-weight: 500;
     position: relative;
     padding: 5px 15px;
@@ -93,14 +75,12 @@ nav {
     width: 100%;
 }
 
-/* Main Content */
 main {
     min-height: 100vh;
     padding: 100px 5% 50px;
     position: relative;
 }
 
-/* Hero Section (Initial Empty Space) */
 .hero {
     height: 100vh;
     display: flex;
@@ -109,7 +89,6 @@ main {
     position: relative;
 }
 
-/* Profile Section */
 .profile-section {
     padding: 100px 5%;
     opacity: 0;
@@ -125,15 +104,15 @@ main {
 .profile-content {
     display: flex;
     align-items: center;
-    gap: 50px;
+    gap: 70px; /* Increased gap to accommodate larger image */
     max-width: 1200px;
     margin: 0 auto;
     flex-wrap: wrap;
 }
 
 .profile-pic {
-    width: 300px;
-    height: 300px;
+    width: 250px; /* Increased from 150px */
+    height: 250px; /* Increased from 150px */
     border-radius: 50%;
     border: 4px solid var(--primary-color);
     box-shadow: 0 0 20px var(--primary-color);
@@ -153,7 +132,7 @@ main {
 }
 
 .profile-text p {
-    font-size: 0.875rem; /* ~14px */
+    font-size: 1rem; /* Increased from 0.75rem */
     color: var(--light-color);
     text-shadow: 0 0 5px rgba(0, 255, 255, 0.3);
 }
@@ -170,7 +149,6 @@ main {
     }
 }
 
-/* Contact Section */
 .contact {
     padding: 100px 5%;
     text-align: center;
@@ -185,7 +163,7 @@ main {
 }
 
 .contact h2 {
-    font-size: 1.5rem; /* ~24px */
+    font-size: 1.25rem;
     margin-bottom: 50px;
     color: var(--light-color);
     position: relative;
@@ -237,6 +215,11 @@ main {
     border-color: var(--primary-color);
 }
 
+.contact-item img {
+    width: 20px;
+    height: 20px;
+}
+
 .contact-icon {
     font-size: 1.3rem;
     color: var(--primary-color);
@@ -248,57 +231,55 @@ main {
 }
 
 .contact-text h3 {
-    font-size: 1rem; /* ~16px */
+    font-size: 0.875rem;
     color: var(--light-color);
     margin-bottom: 5px;
     text-shadow: 0 0 5px rgba(0, 255, 255, 0.3);
 }
 
 .contact-text p {
-    font-size: 0.875rem; /* ~14px */
+    font-size: 0.75rem;
     color: rgba(240, 248, 255, 0.8);
     text-shadow: 0 0 5px rgba(0, 255, 255, 0.1);
 }
 
-/* Futuristic Particles */
 .particles {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    overflow: hidden;
     z-index: -1;
-    pointer-events: none;
+    overflow: hidden;
 }
 
 .particle {
     position: absolute;
-    width: 2px;
-    height: 2px;
-    background-color: rgba(0, 255, 255, 0.5);
+    width: 3px;
+    height: 3px;
+    background-color: #ffffff;
     border-radius: 50%;
-    animation: float 15s linear infinite;
+    animation: float 20s linear infinite;
+    box-shadow: 0 0 10px #0ff, 0 0 20px #0ff;
 }
 
 @keyframes float {
     0% {
-        transform: translateY(0) translateX(0);
+        transform: translateY(100vh) translateX(-50px);
         opacity: 0;
     }
     10% {
-        opacity: 0.5;
+        opacity: 1;
     }
     90% {
-        opacity: 0.5;
+        opacity: 1;
     }
     100% {
-        transform: translateY(-1000px) translateX(100px);
+        transform: translateY(-100px) translateX(50px);
         opacity: 0;
     }
 }
 
-/* Parallax Effect */
 .parallax {
     background-attachment: fixed;
     background-position: center;
@@ -306,7 +287,6 @@ main {
     background-size: cover;
 }
 
-/* Responsive Design */
 @media (max-width: 768px) {
     nav {
         right: 2%;
@@ -318,7 +298,7 @@ main {
     }
 
     .nav-links a {
-        font-size: 0.75rem; /* ~12px */
+        font-size: 0.75rem;
         padding: 5px 10px;
     }
 
@@ -329,156 +309,188 @@ main {
     }
 
     .profile-pic {
-        width: 200px;
-        height: 200px;
+        width: 300px; /* Increased from 200px */
+        height: 300px; /* Increased from 200px */
     }
 
     .profile-text p {
-        font-size: 0.75rem; /* ~12px */
+        font-size: 0.875rem; /* Increased from 0.75rem for mobile */
     }
 
     .contact h2 {
-        font-size: 1.25rem; /* ~20px */
+        font-size: 1.25rem;
     }
 
     .contact-text h3 {
-        font-size: 0.875rem; /* ~14px */
+        font-size: 0.875rem;
     }
 
     .contact-text p {
-        font-size: 0.75rem; /* ~12px */
+        font-size: 0.75rem;
     }
-    /* Projects Link at Center Top */
-.projects-link {
-    position: fixed;
-    top: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 99; /* Below navigation (z-index: 100) but above other content */
-    text-align: center;
+
+    .projects-link {
+        position: fixed;
+        top: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 99;
+        text-align: center;
+    }
+
+    .projects-button {
+        display: inline-block;
+        padding: 12px 30px;
+        background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+        color: var(--dark-color);
+        border: none;
+        border-radius: 30px;
+        font-size: 1rem;
+        font-weight: bold;
+        cursor: pointer;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        text-shadow: 0 0 5px rgba(0, 255, 255, 0.3);
+        box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
+    }
+
+    .contact {
+        padding: 0 2%;
+    }
+
+    .contact h2 {
+        font-size: 1.25rem;
+    }
+
+    .contact-text h3 {
+        font-size: 0.875rem;
+    }
+
+    .contact-text p {
+        font-size: 0.75rem;
+    }
 }
 
-.projects-button {
-    display: inline-block;
-    padding: 12px 30px;
-    background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
-    color: var(--dark-color);
-    border: none;
-    border-radius: 30px;
-    font-size: 1rem; /* ~16px */
-    font-weight: bold;
-    cursor: pointer;
-    text-decoration: none;
-    transition: all 0.3s ease;
-    text-shadow: 0 0 5px rgba(0, 255, 255, 0.3);
-    box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
-}
-/* Contact Section */
-.contact {
-    padding: 0 5%; /* Remove vertical padding to allow full centering */
-    text-align: center;
-    opacity: 0;
-    transform: translateY(50px);
-    transition: opacity 0.8s ease, transform 0.8s ease;
-    min-height: 100vh; /* Ensure the section takes up the full viewport height for centering */
+.hero {
     display: flex;
-    flex-direction: column;
-    justify-content: center; /* Center vertically */
-    align-items: center; /* Center horizontally */
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
 }
 
-.contact.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.contact h2 {
-    font-size: 1.5rem; /* ~24px */
-    margin-bottom: 30px; /* Reduced margin for better centering */
+.quote {
+    font-size: 1.5em;
+    font-weight: bold;
     color: var(--light-color);
-    position: relative;
-    display: inline-block;
-    text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+    text-shadow: 0 0 5px rgba(0, 255, 255, 0.3);
+    max-width: 80%;
+    margin: 0 auto;
+    text-align: center;
 }
 
-.contact h2::after {
-    content: '';
-    position: absolute;
-    bottom: -10px;
+.social-icon {
+    width: 24px;
+    height: 24px;
+    margin: 0 5px;
+    transition: transform 0.3s ease;
+}
+
+.social-icon:hover {
+    transform: scale(1.2);
+}
+
+/* Loading Screen */
+.loader {
+    position: fixed;
+    top: 0;
     left: 0;
     width: 100%;
-    height: 3px;
-    background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
-    animation: glow 2s infinite;
-}
-
-.contact-info {
+    height: 100%;
+    background: var(--dark-color);
     display: flex;
-    flex-direction: column;
-    gap: 20px;
-    max-width: 500px;
-    margin: 0 auto;
-    width: 100%; /* Ensure full width for centering */
-}
-
-.contact-item {
-    display: flex;
+    justify-content: center;
     align-items: center;
-    gap: 15px;
-    background: rgba(255, 255, 255, 0.05);
-    padding: 15px 20px;
-    border-radius: 10px;
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(0, 255, 255, 0.2);
-    transition: all 0.3s ease;
-    box-shadow: 0 0 10px rgba(0, 255, 255, 0.1);
+    z-index: 1000;
+    transition: opacity 0.5s, visibility 0.5s;
 }
 
-.contact-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+.loader.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.loader::after {
+    content: '';
+    width: 50px;
+    height: 50px;
+    border: 5px solid #ffffff;
+    border-top-color: var(--primary-color);
+    border-radius: 50%;
+    animation: loading 0.75s ease infinite;
+}
+
+@keyframes loading {
+    from { transform: rotate(0turn) }
+    to { transform: rotate(1turn) }
+}
+
+/* Scroll to Top Button */
+.scroll-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: var(--primary-color);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.3s;
+    z-index: 100;
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+}
+
+.scroll-top.visible {
+    opacity: 1;
+}
+
+/* Projects Section */
+.projects {
+    padding: 100px 5%;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.project-card {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    padding: 20px;
+    transition: transform 0.3s;
+    border: 1px solid rgba(0, 255, 255, 0.1);
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
     border-color: var(--primary-color);
 }
 
-.contact-icon {
-    font-size: 1.3rem;
+.project-title {
     color: var(--primary-color);
-    text-shadow: 0 0 5px rgba(0, 255, 255, 0.3);
+    font-size: 1.2rem;
+    margin-bottom: 10px;
 }
 
-.contact-text {
-    text-align: left;
-}
-
-.contact-text h3 {
-    font-size: 1rem; /* ~16px */
-    color: var(--light-color);
-    margin-bottom: 5px;
-    text-shadow: 0 0 5px rgba(0, 255, 255, 0.3);
-}
-
-.contact-text p {
-    font-size: 0.875rem; /* ~14px */
-    color: rgba(240, 248, 255, 0.8);
-    text-shadow: 0 0 5px rgba(0, 255, 255, 0.1);
-}
-
-/* Responsive Design for Contact Section */
-@media (max-width: 768px) {
-    .contact {
-        padding: 0 2%; /* Adjust padding for mobile */
-    }
-
-    .contact h2 {
-        font-size: 1.25rem; /* ~20px */
-    }
-
-    .contact-text h3 {
-        font-size: 0.875rem; /* ~14px */
-    }
-
-    .contact-text p {
-        font-size: 0.75rem; /* ~12px */
-    }
-}
+/* Enhanced Particles */
+.particle {
+    background: radial-gradient(circle at center, #fff, transparent);
 }

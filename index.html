@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Devid Oli | Portfolio</title>
     <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+    <style>
+        body { overflow: hidden; }
+        body.loaded { overflow: visible; }
+    </style>
 </head>
 <body>
     <!-- Add Loading Screen -->
@@ -32,7 +37,7 @@
         </div>
     </section>
 
-    <section id="about" class="profile-section">
+    <section id="about" class="profile-section section-fade-in">
         <div class="profile-content">
             <div class="profile-pic">
                 <img src="Screenshot_17-2-2025_223045_www.facebook.com.jpeg" alt="Devid Oli">
@@ -44,7 +49,7 @@
         </div>
     </section>
 
-    <section id="projects" class="projects">
+    <section id="projects" class="projects section-fade-in">
         <h2>My Projects</h2>
         <div class="projects-grid">
             <div class="project-card" onclick="openModal('Project 1', 'Description of project 1')">
@@ -54,7 +59,7 @@
         </div>
     </section>
 
-    <section id="contact" class="contact">
+    <section id="contact" class="contact section-fade-in">
         <h2>My Contact</h2>
         <div class="contact-info">
             <div class="contact-item">
@@ -108,44 +113,5 @@
     <!-- Add Scroll to Top Button -->
     <div class="scroll-top">↑</div>
 
-    <script>
-        const particlesContainer = document.querySelector('.particles');
-        const particleCount = 150; // Increased count
-        
-        for (let i = 0; i < particleCount; i++) {
-            const particle = document.createElement('div');
-            particle.classList.add('particle');
-            particle.style.left = `${Math.random() * 100}%`;
-            particle.style.top = `${Math.random() * 100}%`;
-            particle.style.opacity = Math.random();
-            particle.style.animationDuration = `${Math.random() * 20 + 10}s`;
-            particle.style.animationDelay = `${Math.random() * 5}s`;
-            particlesContainer.appendChild(particle);
-        }
-        
-        window.addEventListener('scroll', () => {
-            const profileSection = document.querySelector('.profile-section');
-            const contactSection = document.querySelector('.contact');
-            const scrollPosition = window.scrollY;
-            if (scrollPosition > window.innerHeight * 0.5) {
-                profileSection.classList.add('visible');
-            }
-            const profileBottom = profileSection.getBoundingClientRect().bottom + scrollPosition;
-            if (scrollPosition > profileBottom - window.innerHeight * 0.5) {
-                contactSection.classList.add('visible');
-            }
-            document.querySelector('.background-video').style.transform = `translateY(${scrollPosition * 0.1}px)`;
-        });
-        document.querySelector('a[href="#contact"]').addEventListener('click', (e) => {
-            e.preventDefault();
-            document.querySelector('#contact').scrollIntoView({ behavior: 'smooth', block: 'end' });
-        });
-        document.querySelector('a[href="#home"]').addEventListener('click', (e) => {
-            e.preventDefault();
-            window.scrollTo({ top: 0, behavior: 'smooth' })
-            ;
-        });
-    </script>
-    <script src="script.js"></script>
 </body>
 </html>
